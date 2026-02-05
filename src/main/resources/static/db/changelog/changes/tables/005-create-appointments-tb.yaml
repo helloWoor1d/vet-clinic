@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005-create-appointments-tb
+      author: mira
+      changes:
+        - createTable:
+            tableName: appointments
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column: 
+                  name: pet_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk-appointments-pet_id-to-pets-id
+              - column: 
+                  name: doctor_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk-appointments-doctor_id-to-doctors-id
+              - column: 
+                  name: datetime
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column: 
+                  name: status
+                  type: VARCHAR(64)
+                  constraints:
+                    nullable: false
+                    
+        - addForeignKeyConstraint:
+            baseTableName: appointments
+            baseColumnNames: pet_id
+            constraintName: fk-appointments-pet_id-to-pets-id
+            referencedTableName: pets
+            referencedColumnNames: id
+            
+        - addForeignKeyConstraint:
+            baseTableName: appointments
+            baseColumnNames: doctor_id
+            constraintName: fk-appointments-doctor_id-to-doctors-id
+            referencedTableName: doctors
+            referencedColumnNames: id

@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - include:
+      file: static/db/changelog/changes/tables/001-create-users-tb.yaml
+  - include:
+      file: static/db/changelog/changes/tables/002-create-animal-species-tb.yaml
+  - include:
+      file: static/db/changelog/changes/tables/003-create-pets-tb.yaml
+  - include:
+      file: static/db/changelog/changes/tables/004-create-doctors-tb.yaml
+  - include:
+      file: static/db/changelog/changes/tables/005-create-appointments-tb.yaml
+  - include:
+      file: static/db/changelog/changes/tables/006-create-specializations-tb.yaml
+  - include:
+      file: static/db/changelog/changes/tables/007-create-doctors-spec_tb.yaml
+  - include:
+      file: static/db/changelog/changes/tables/008-create-med-cards-tb.yaml
+  - include:
+      file: static/db/changelog/changes/tables/009-create-med-records-tb.yaml
+  - include:
+      file: static/db/changelog/changes/data/010-init-animal_species-data.yaml
+  - include:
+      file: static/db/changelog/changes/data/011-init-specializations-data.yaml

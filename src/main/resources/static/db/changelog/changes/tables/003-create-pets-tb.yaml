@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-create-pets-tb
+      author: mira
+      changes:
+        - createTable:
+            tableName: pets
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(128)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: owner_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk-pets-owner_id-to-users-id
+              - column:
+                  name: species_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk-pets-species_id-to-animal_species-id
+              - column:
+                  name: birthdate
+                  type: DATE
+
+        - addForeignKeyConstraint:
+            constraintName: fk-pets-owner_id-to-users-id
+            baseTableName: pets
+            baseColumnNames: owner_id
+            referencedTableName: users
+            referencedColumnNames: id
+
+        - addForeignKeyConstraint:
+            baseTableName: pets
+            baseColumnNames: species_id
+            constraintName: fk-pets-species_id-to-animal_species-id
+            referencedTableName: animal_species
+            referencedColumnNames: id

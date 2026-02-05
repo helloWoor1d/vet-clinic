@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 007-create-doctors-specializations_tb
+      author: mira
+      changes:
+        - createTable:
+            tableName: doctors_spec
+            columns:
+              - column: 
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column: 
+                  name: doctor_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk-doctors-spec-doctor_id-to-doctors-id
+              - column: 
+                  name: spec_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk-doctors_spec-spec_id-to-spec-id
+        
+        - addForeignKeyConstraint:
+            baseTableName: doctors_spec
+            baseColumnNames: doctor_id
+            constraintName: fk-doctors-spec-doctor_id-to-doctors-id
+            referencedTableName: doctors
+            referencedColumnNames: id
+            
+        - addForeignKeyConstraint:
+            baseTableName: doctors_spec
+            baseColumnNames: spec_id
+            constraintName: fk-doctors_spec-spec_id-to-spec-id
+            referencedTableName: specializations
+            referencedColumnNames: id
