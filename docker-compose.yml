@@ -1,0 +1,19 @@
+services:
+  vet-clinic-db:
+    image: postgres:16.3-alpine
+    ports:
+      - '${DATABASE_PORT}:5432'
+    volumes:
+      - vet_clinic_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DATABASE_NAME}
+      - POSTGRES_USER=${DATABASE_USERNAME}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+    healthcheck:
+      test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
+      timeout: 5s
+      interval: 5s
+      retries: 10
+
+volumes:
+  vet_clinic_data:
