@@ -23,7 +23,7 @@ databaseChangeLog:
                   type: BIGINT
                   constraints:
                     nullable: false
-                    foreignKeyName: fk-doctors-spec-spec_id-to-spec-id
+                    foreignKeyName: fk-doctors_spec-spec_id-to-spec-id
         
         - addForeignKeyConstraint:
             baseTableName: doctors_spec
@@ -35,6 +35,6 @@ databaseChangeLog:
         - addForeignKeyConstraint:
             baseTableName: doctors_spec
             baseColumnNames: spec_id
-            constraintName: fk-doctors-spec-spec_id-to-spec-id
+            constraintName: fk-doctors_spec-spec_id-to-spec-id
             referencedTableName: specializations
             referencedColumnNames: id

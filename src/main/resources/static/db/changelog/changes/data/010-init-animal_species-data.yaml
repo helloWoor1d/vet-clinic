@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 010-init-animal-species-data
+      author: mira
+      changes:
+        - insert:
+            tableName: animal_species
+            columns:
+              - column:
+                  name: name
+                  value: Кошка
+        - insert:
+            tableName: animal_species
+            columns:
+              - column:
+                  name: name
+                  value: Собака
+        - insert:
+            tableName: animal_species
+            columns:
+              - column:
+                  name: name
+                  value: Попугай
+        - insert:
+            tableName: animal_species
+            columns:
+              - column:
+                  name: name
+                  value: Хомяк
+        - insert:
+            tableName: animal_species
+            columns:
+              - column:
+                  name: name
+                  value: Змея

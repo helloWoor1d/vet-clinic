@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: 001-create-owners-tb
+      id: 001-create-users-tb
       author: mira
       changes:
         - createTable:
-            tableName: owners
+            tableName: users
             columns:
               - column:
                   name: id

@@ -38,3 +38,8 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     unique: true
+              - column:
+                  name: appointment_price
+                  type: DECIMAL
+                  constraints:
+                    nullable: false

@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 011-init-specializations-data
+      author: mira
+      changes:
+        - insert:
+            tableName: specializations
+            columns:
+              - column:
+                  name: name
+                  value: Терапевт
+        - insert:
+            tableName: specializations
+            columns:
+              - column:
+                  name: name
+                  value: Хирург
+        - insert:
+            tableName: specializations
+            columns:
+              - column:
+                  name: name
+                  value: Кардиолог
+        - insert:
+            tableName: specializations
+            columns:
+              - column:
+                  name: name
+                  value: Стоматолог
+        - insert:
+            tableName: specializations
+            columns:
+              - column:
+                  name: name
+                  value: Грумер

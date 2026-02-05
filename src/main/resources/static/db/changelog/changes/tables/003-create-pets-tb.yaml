@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: 003-create-patients-tb
+      id: 003-create-pets-tb
       author: mira
       changes:
         - createTable:
-            tableName: patients
+            tableName: pets
             columns:
               - column:
                   name: id
@@ -22,27 +22,27 @@ databaseChangeLog:
                   type: BIGINT
                   constraints:
                     nullable: false
-                    foreignKeyName: fk-patients-owner_id-to-owners-id
+                    foreignKeyName: fk-pets-owner_id-to-users-id
               - column:
                   name: species_id
                   type: BIGINT
                   constraints:
                     nullable: false
-                    foreignKeyName: fk-patients-species_id-to-animal_species-id
+                    foreignKeyName: fk-pets-species_id-to-animal_species-id
               - column:
                   name: birthdate
                   type: DATE
 
         - addForeignKeyConstraint:
-            constraintName: fk-patients-owner_id-to-owners-id
-            baseTableName: patients
+            constraintName: fk-pets-owner_id-to-users-id
+            baseTableName: pets
             baseColumnNames: owner_id
-            referencedTableName: owners
+            referencedTableName: users
             referencedColumnNames: id
 
         - addForeignKeyConstraint:
-            baseTableName: patients
+            baseTableName: pets
             baseColumnNames: species_id
-            constraintName: fk-patients-species_id-to-animal_species-id
+            constraintName: fk-pets-species_id-to-animal_species-id
             referencedTableName: animal_species
             referencedColumnNames: id

@@ -13,7 +13,7 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: species
+                  name: name
                   type: VARCHAR(256)
                   constraints:
                     nullable: false
