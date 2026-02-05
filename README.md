@@ -34,3 +34,6 @@
     - user: mira
     - password: password
     - db: vet_clinic
+ 
+## Схема базы данных
+<img width="1056" height="731" alt="Схема бд" src="https://github.com/user-attachments/assets/17cd2060-ddc2-455e-a163-9687c26c3929" />
